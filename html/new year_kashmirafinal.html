@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year Kashmira!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-pink: #ff69b4;
+            --deep-pink: #d63384;
+            --soft-pink: #ffe6f2;
+            --gold: #ffd700;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffc0cb 0%, #ff69b4 100%);
+            height: 100vh;
+            overflow: hidden; /* Hide scrollbars, we use slides */
+            color: #333;
+        }
+
+        /* Floating Hearts Animation Background */
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -10px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 20px;
+            animation: floatUp 10s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Pages/Slides */
+        .slide {
+            display: none; /* Hidden by default */
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            width: 85%;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeIn 0.8s ease-in-out;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--deep-pink);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Images */
+        .photo-frame {
+            border: 4px solid var(--primary-pink);
+            padding: 5px;
+            border-radius: 15px;
+            margin: 15px auto;
+            width: 200px;
+            height: 250px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .gallery-grid .photo-frame {
+            width: 100%;
+            height: 150px;
+            margin: 0;
+        }
+
+        /* Buttons */
+        .btn {
+            background: var(--deep-pink);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+        }
+
+        .btn:hover {
+            background: #b01c63;
+            transform: translateY(-2px);
+        }
+
+        .btn-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        /* Specific Highlight Styles */
+        .highlight {
+            color: var(--primary-pink);
+            font-weight: bold;
+        }
+        
+        .date-box {
+            background: var(--soft-pink);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px dashed var(--deep-pink);
+            margin: 15px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="hearts-container" id="heartsBg"></div>
+
+    <div class="container">
+        
+        <div class="slide active" id="slide1">
+            <h1>Happy New Year! 🎉</h1>
+            <h2>Kashmira Acharya</h2>
+            
+            <div class="photo-frame">
+                <img src="C:\Users\rajat\OneDrive\Desktop\Documents\new year/597691054_868181705764323_4423624768460934212_n (1).jpg" alt="Kashmira Dance">
+            </div>
+            
+            <p>Welcome to your special New Year Surprise.</p>
+            <p>Since you are 13 now, this year is going to be your best one yet!</p>
+            
+            <button class="btn" onclick="nextSlide(2)">Click to Enter ✨</button>
+        </div>
+
+        <div class="slide" id="slide2">
+            <h1>The Beautiful You 🌸</h1>
+            <p>Every picture of yours tells a story of elegance.</p>
+            
+            <div class="gallery-grid">
+                <div class="photo-frame"><img src="C:\Users\rajat\OneDrive\Desktop\Documents\new year/552218272_1191460902855369_1167181473390298223_n.jpg" alt="Red Dress"></div>
+                <div class="photo-frame"><img src="C:\Users\rajat\OneDrive\Desktop\Documents\new year/601445989_1210780647784832_8192521398957071110_n.jpg" alt="Cake"></div>
+                <div class="photo-frame"><img src="C:\Users\rajat\OneDrive\Desktop\Documents\new year/588571895_1576735806838970_3308448865707413371_n.jpg" alt="Eyes"></div>
+                <div class="photo-frame"><img src="C:\Users\rajat\OneDrive\Desktop\Documents\new year/pic_collage.jpg" alt="Collage"></div>
+            </div>
+
+            <div class="btn-nav">
+                <button class="btn" onclick="nextSlide(1)">Back</button>
+                <button class="btn" onclick="nextSlide(3)">Next 💖</button>
+            </div>
+        </div>
+
+        <div class="slide" id="slide3">
+            <h1>Where it All Began 🏫</h1>
+            
+            <div class="photo-frame" style="width: 250px; height: 350px;">
+                <img src="C:\Users\rajat\OneDrive\Desktop\Documents\new year/WhatsApp Image 2025-09-05 at 15.26.20_1be7921d.jpg" alt="First photo of us together.">
+            </div>
+
+            <div class="date-box">
+                <p>Do you remember?</p>
+                <h3 class="highlight">January 17th, 2025</h3>
+                <p>The day we first met at School.</p>
+            </div>
+            <p>That day changed everything. Meeting you was the highlight of my school life.</p>
+
+            <div class="btn-nav">
+                <button class="btn" onclick="nextSlide(2)">Back</button>
+                <button class="btn" onclick="nextSlide(4)">Read Message 💌</button>
+            </div>
+        </div>
+
+        <div class="slide" id="slide4">
+            <h1>My Wish For You ✨</h1>
+            
+            <p style="text-align: left; padding: 0 10px;">
+                Dear <b>Kashmira</b>,
+                <br><br>
+                As the calendar turns a new leaf, I want to take a moment to tell you how special you are. You have a smile that lights up the classroom and eyes that are truly mesmerizing.
+                <br><br>
+                May this New Year bring you:
+                <br>📚 Amazing grades in school
+                <br>💃 More beautiful dance moments
+                <br>🍫 Lots of chocolates and cakes
+                <br>😊 And endless happiness!
+            </p>
+
+            <h2 style="font-size: 1.5rem; color: var(--primary-pink);">You are the best!</h2>
+
+            <div class="btn-nav">
+                <button class="btn" onclick="nextSlide(3)">Back</button>
+                <button class="btn" onclick="nextSlide(5)">Final Surprise 🎁</button>
+            </div>
+        </div>
+
+        <div class="slide" id="slide5">
+            <h1>Thank You! 🙏</h1>
+            <p>Thank you for being such a wonderful part of my life since Jan 17th.</p>
+            
+            <div style="font-size: 3rem; margin: 20px;">
+                🎈🎆🥳
+            </div>
+
+            <h2 class="highlight">Happy New Year 2026!</h2>
+            <p><i>Wishing you a year full of magic, Kashmira.</i></p>
+
+            <button class="btn" onclick="nextSlide(1)">Replay ↺</button>
+        </div>
+
+    </div>
+
+    <script>
+        // --- JAVASCRIPT LOGIC ---
+
+        // Function to switch slides
+        function nextSlide(slideNumber) {
+            // Hide all slides
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Show specific slide
+            const activeSlide = document.getElementById('slide' + slideNumber);
+            activeSlide.classList.add('active');
+        }
+
+        // Create Floating Hearts Animation
+        function createHearts() {
+            const container = document.getElementById('heartsBg');
+            const heartSymbols = ['❤', '💖', '✨', '🌸', '🎀'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                
+                // Randomize position and animation duration
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 4 + 's'; // between 4 and 7 seconds
+                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+                
+                container.appendChild(heart);
+
+                // Remove heart after animation finishes to keep memory low
+                setTimeout(() => {
+                    heart.remove();
+                }, 7000);
+            }, 300);
+        }
+
+        // Start the hearts
+        createHearts();
+
+    </script>
+</body>
+</html>
